@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 // Configure allowed origins for CORS
 const allowedOrigins = [
   process.env.FRONTEND_URL, // Production frontend URL
+  'https://career-roadmap-3.vercel.app',
   'http://localhost:5173', // Vite dev server
   'http://127.0.0.1:5173', // Alternative localhost
   'http://localhost:3000', // Create-react-app default

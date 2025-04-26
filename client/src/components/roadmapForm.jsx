@@ -94,10 +94,13 @@ export default function RoadmapInput() {
     formData.append('cv', file);
 
     try {
-      const response = await fetch('http://localhost:5000/api/processCv', {
-        method: 'POST',
-        body: formData,
-      });
+      const response = await fetch(
+        'https://career-roadmap-3.onrender.com/api/processCv',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      );
 
       if (!response.ok) throw new Error('File upload failed');
 
@@ -207,13 +210,16 @@ export default function RoadmapInput() {
         skillsEducation: submissionData.skillsEducation,
       };
 
-      const response = await fetch('http://localhost:5000/api/roadmap', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(apiPayload),
-      });
+      const response = await fetch(
+        'https://career-roadmap-3.onrender.com/api/roadmap',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(apiPayload),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();

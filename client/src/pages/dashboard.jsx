@@ -13,7 +13,7 @@ import {
   LogOut,
 } from 'lucide-react';
 import { UserAuth } from '../context/authContext';
-import SettingsPage from './SettingsPage';
+import SettingsPage from './settingsPage';
 import RoadmapComponent from '../components/roadmap/roadmap';
 import InterviewPrep from './interviewPrep';
 import CvReview from './cvReview';

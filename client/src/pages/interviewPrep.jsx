@@ -26,7 +26,7 @@ function InterviewPrep() {
 
     try {
       const response = await fetch(
-        'http://localhost:5000/api/interviewPrep/start',
+        'https://career-roadmap-3.onrender.com/api/interviewPrep/start',
         {
           method: 'POST',
           headers: {
@@ -82,7 +82,7 @@ function InterviewPrep() {
 
     try {
       const response = await fetch(
-        'http://localhost:5000/api/interviewPrep/answer',
+        'https://career-roadmap-3.onrender.com/api/interviewPrep/answer',
         {
           method: 'POST',
           headers: {

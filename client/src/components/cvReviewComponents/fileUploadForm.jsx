@@ -78,7 +78,7 @@ const FileUploadForm = ({ onAnalysisComplete }) => {
       formData.append('cv', file);
 
       const extractResponse = await fetch(
-        'http://localhost:5000/api/extract-cv/extract',
+        'https://career-roadmap-3.onrender.com/api/extract-cv/extract',
         {
           method: 'POST',
           body: formData,
@@ -96,7 +96,7 @@ const FileUploadForm = ({ onAnalysisComplete }) => {
 
       // Core analysis (always runs)
       analysisPromises.push(
-        fetch('http://localhost:5000/api/analyze/core', {
+        fetch('https://career-roadmap-3.onrender.com/api/analyze/core', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ cvText, jobTitle }),
@@ -109,7 +109,7 @@ const FileUploadForm = ({ onAnalysisComplete }) => {
       // Job comparison (only if description exists)
       if (jobTitle && jobDescription) {
         analysisPromises.push(
-          fetch('http://localhost:5000/api/compare/job', {
+          fetch('https://career-roadmap-3.onrender.com/api/compare/job', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ cvText, jobTitle, jobDescription }),

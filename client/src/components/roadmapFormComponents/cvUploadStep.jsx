@@ -22,7 +22,7 @@ export default function CVUploadStep({
         const formDataToSend = new FormData();
         formDataToSend.append('cv', file);
 
-        const response = await fetch('http://localhost:5000/api/processCv', {
+        const response = await fetch('https://career-roadmap-3.onrender.com/api/processCv', {
           method: 'POST',
           body: formDataToSend,
         });

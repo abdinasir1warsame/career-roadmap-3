@@ -53,7 +53,7 @@ export const LearningDataProvider = ({ children }) => {
         // 3) Conditionally fetch videos
         if (!Object.keys(videosByStage).length) {
           const videosRes = await fetch(
-            'http://localhost:5000/api/youtube/videos',
+            'https://career-roadmap-3.onrender.com/api/youtube/videos',
             {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -71,7 +71,7 @@ export const LearningDataProvider = ({ children }) => {
         // 4) Conditionally fetch books
         if (!Object.keys(booksByStage).length) {
           const booksRes = await fetch(
-            'http://localhost:5000/api/google/books',
+            'https://career-roadmap-3.onrender.com/api/google/books',
             {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },

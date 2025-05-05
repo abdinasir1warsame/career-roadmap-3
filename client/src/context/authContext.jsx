@@ -14,7 +14,8 @@ const UserContext = createContext();
 
 // 2. Create the provider
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(undefined); // undefined = loading
+  const [loading, setLoading] = useState(true); // optional but explicit
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -35,14 +36,23 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      setUser(currentUser || null); // null = explicitly logged out
+      setLoading(false);
     });
+
     return () => unsubscribe();
   }, []);
 
   return (
     <UserContext.Provider
-      value={{ createUser, signIn, logout, signInWithGoogle, user }}
+      value={{
+        user,
+        loading,
+        createUser,
+        signIn,
+        logout,
+        signInWithGoogle,
+      }}
     >
       {children}
     </UserContext.Provider>
@@ -50,6 +60,4 @@ export const AuthContextProvider = ({ children }) => {
 };
 
 // 3. Custom hook for consuming context
-export const UserAuth = () => {
-  return useContext(UserContext);
-};
+export const UserAuth = () => useContext(UserContext);

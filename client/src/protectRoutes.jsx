@@ -1,16 +1,22 @@
-import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { UserAuth } from './context/authContext';
 
 const ProtectedRoute = ({ children }) => {
-  const { user } = UserAuth();
+  const { user, loading } = UserAuth();
+
+  if (loading) {
+    // Still checking auth state — block route change
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+        <div className="animate-spin h-10 w-10 border-4 border-blue-500 border-t-transparent rounded-full"></div>
+      </div>
+    );
+  }
 
   if (!user) {
-    // User not authenticated, redirect to login
     return <Navigate to="/login" replace />;
   }
 
-  // User authenticated, render the protected component
   return children;
 };
 

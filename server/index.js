@@ -2,9 +2,15 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import fileUpload from 'express-fileupload';
+import cvExtractRouter from './routes/extractTextFromCv.js';
 import roadmapRouter from './routes/roadmap.js';
 import stripeRouter from './routes/stripe.js';
 import processCvRouter from './routes/processCv.js';
+import InterviewPrepRouter from './routes/interviewPrep.js';
+import cvAnalysisCore from './controllers/cvAnalysisCore.js';
+import cvAnalysisJob from './controllers/cvAnalysisJob.js';
+import youtubeVideos from './routes/youtubeApi.js';
+import googleBooks from './routes/googleBook.js';
 import './firebase.js'; // Initialize Firebase
 
 dotenv.config();
@@ -72,8 +78,14 @@ app.use(function (req, res, next) {
 
 // API Routes
 app.use('/api/roadmap', roadmapRouter);
+app.use('/api/interviewPrep', InterviewPrepRouter);
 app.use('/api/processCv', processCvRouter);
 app.use('/api/stripe', stripeRouter);
+app.use('/api/extract-cv', cvExtractRouter);
+app.use('/api/analyze', cvAnalysisCore);
+app.use('/api/compare', cvAnalysisJob);
+app.use('/api/youtube', youtubeVideos);
+app.use('/api/google', googleBooks);
 
 // Health check endpoint
 app.get('/health', function (req, res) {

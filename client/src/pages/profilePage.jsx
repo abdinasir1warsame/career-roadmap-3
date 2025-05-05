@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Search, X, Save, Edit } from 'lucide-react';
 import { doc, onSnapshot, updateDoc } from 'firebase/firestore';
-import { db } from '../../firebase';
-import { UserAuth } from '../../context/authContext';
+import { db } from '../firebase';
+import { UserAuth } from '../context/authContext';
 
 function ProfilePage() {
   const { user } = UserAuth();
@@ -117,7 +117,7 @@ function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="flex-1 overflow-auto min-h-screen bg-gray-800/60 backdrop-blur-md border border-blue-500/30 shadow-lg shadow-blue-500/10 text-white font-sans p-6 flex items-center justify-center">
+      <div className="flex justify-center items-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
     );
@@ -293,7 +293,7 @@ function ProfilePage() {
                 <div className="relative mb-4 sm:mb-0 sm:mr-6">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 blur-sm transform scale-110 animate-pulse"></div>
                   <img
-                    src="https://picsum.photos/id/64/200/200"
+                    src="https://as1.ftcdn.net/jpg/07/95/95/14/1000_F_795951406_h17eywwIo36DU2L8jXtsUcEXqPeScBUq.jpg"
                     alt="Profile"
                     className="w-24 h-24 rounded-full object-cover border-2 border-blue-500/30 relative z-10"
                   />

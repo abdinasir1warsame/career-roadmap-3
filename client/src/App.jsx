@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import LandingPage from './components/pages/landingPage';
-import DashBoard from './components/pages/dashboard';
+import LandingPage from './pages/landingPage';
+import DashBoard from './pages/dashboard';
 import RoadmapInput from './components/roadmapForm';
 import { AuthContextProvider } from './context/authContext';
 import ProtectedRoute from './protectRoutes';
-import Subscriptions from './components/pages/subscriptions';
+import Subscriptions from './pages/subscriptions';
+import { LearningDataProvider } from './context/learningDataProvider';
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
             path={'/dashboard'}
             element={
               <ProtectedRoute>
-                <DashBoard />
+                <LearningDataProvider>
+                  <DashBoard />
+                </LearningDataProvider>
               </ProtectedRoute>
             }
           />

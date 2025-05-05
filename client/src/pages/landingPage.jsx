@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Hero from '../hero';
-import Navbar from '../navbar';
-import Features from '../features';
-import HowItWorks from '../howItWorks';
-import Testimonials from '../testimonials';
+import Hero from '../components/landingPageComponents/hero';
+import Navbar from '../components/landingPageComponents/navbar';
+import Features from '../components/landingPageComponents/features';
+import HowItWorks from '../components/landingPageComponents/howItWorks';
+import Testimonials from '../components/landingPageComponents/testimonials';
 
 function LandingPage() {
   return (

@@ -169,10 +169,10 @@ function RoadmapStage({
                 : 'bg-gray-700 border border-blue-500/30'
             )}
           >
-            <span className="text-lg px-2 lg:px-0 font-bold">{index + 1}</span>
+            <span className="text-xl font-bold">{index + 1}</span>
           </div>
           <div>
-            <h3 className="font-bold text-lg lg:text-2xl text-white">
+            <h3 className="font-bold text-2xl text-white px-1">
               {stage?.name || 'Stage'}
             </h3>
             <div className="flex items-center gap-2 text-gray-400 text-md mt-1">
@@ -188,15 +188,11 @@ function RoadmapStage({
               completed
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white border-blue-500/30'
                 : inProgress
-                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white border-blue-500/30'
+                ? 'bg-gradient-to-r from-blue-400 to-purple-500 text-white border-blue-500/30'
                 : 'text-gray-400 border-gray-500/30'
             )}
           >
-            {completed
-              ? 'Completed'
-              : inProgress
-              ? 'In Progress'
-              : 'Not Started'}
+            {completed ? 'Completed' : inProgress ? 'Started' : 'Pending'}
           </Badge>
           {isActive ? (
             <ChevronUp size={18} className="text-gray-400" />
@@ -543,7 +539,7 @@ export default function RoadmapComponent() {
 
   return (
     <>
-      <div className="min-h-screen p-4 md:p-6 ">
+      <div className="min-h-screen   p-4 md:p-6 ">
         <div className="w-full">
           {showEditor ? (
             <CareerGoalsEditor onCancel={handleCancelEdit} />

@@ -24,6 +24,7 @@ const EXPERIENCE_LEVELS = {
 };
 
 // Enhanced job search with fallback titles
+
 const fetchAdzunaJobs = async (primaryTitle, alternativeTitles = []) => {
   const titlesToTry = [primaryTitle, ...alternativeTitles];
   let jobs = [];
@@ -49,7 +50,9 @@ const fetchAdzunaJobs = async (primaryTitle, alternativeTitles = []) => {
       const data = JSON.parse(text);
       const newJobs =
         data.results?.slice(0, 5).map((job) => ({
+          id: job.id || 'Not specified',
           title: job.title || 'Not specified',
+          description: job.description || 'Not specified',
           company: job.company?.display_name || 'Not specified',
           location: job.location?.display_name || 'Not specified',
           salary: job.salary_min

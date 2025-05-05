@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 export default function Navbar() {
   return (
     <>
@@ -30,16 +31,17 @@ export default function Navbar() {
           >
             Testimonials
           </a>
-          <a
-            href="/subscription"
-            className="hover:text-purple-400 transition-colors"
-          >
-            Subscriptions
-          </a>
+          <Link to={'/subscription'}>
+            <a className="hover:text-purple-400 transition-colors">
+              Subscriptions
+            </a>
+          </Link>
         </div>
-        <button className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-purple-500/20">
-          Sign Up
-        </button>
+        <Link to={'/login'}>
+          <button className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-purple-500/20">
+            Sign Up
+          </button>
+        </Link>
       </nav>
     </>
   );

@@ -210,16 +210,13 @@ export default function RoadmapInput() {
         skillsEducation: submissionData.skillsEducation,
       };
 
-      const response = await fetch(
-        'https://career-roadmap-3.onrender.com/api/roadmap',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(apiPayload),
-        }
-      );
+      const response = await fetch('http://localhost:5000/api/roadmap', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(apiPayload),
+      });
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -330,9 +327,7 @@ export default function RoadmapInput() {
           goToStep={goToStep}
         />
 
-        <div className="bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-xl shadow-blue-900/30">
-          {isUploading ? <Loader /> : renderForm()}
-        </div>
+        <div className="">{isUploading ? <Loader /> : renderForm()}</div>
       </div>
     </div>
   );

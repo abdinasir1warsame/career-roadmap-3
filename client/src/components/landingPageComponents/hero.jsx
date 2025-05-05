@@ -1,5 +1,20 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../../context/authContext'; // Adjust the path if needed
+import { useEffect } from 'react';
+
 export default function Hero() {
+  const navigate = useNavigate();
+  const { user, loading } = UserAuth();
+
+  const handleClick = () => {
+    if (loading) return; // prevent early redirect
+    if (user) {
+      navigate('/dashboard');
+    } else {
+      navigate('/login');
+    }
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -24,12 +39,13 @@ export default function Hero() {
                 a tailored path to success.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  to={'/login'}
+                <button
+                  onClick={handleClick}
+                  disabled={loading}
                   className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-purple-500/20 font-medium"
                 >
                   Get Your Roadmap
-                </Link>
+                </button>
                 <a
                   href="#how-it-works"
                   className="px-6 py-3 rounded-full border border-purple-500/50 hover:bg-purple-500/10 transition-all font-medium"
@@ -38,6 +54,8 @@ export default function Hero() {
                 </a>
               </div>
             </div>
+
+            {/* AI Chat Box */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-xl opacity-30 -m-4"></div>
               <div className="relative bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl border border-purple-500/20">
@@ -87,6 +105,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
+            {/* End AI Chat Box */}
           </div>
         </div>
       </section>

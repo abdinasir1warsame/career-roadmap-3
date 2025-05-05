@@ -1,61 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Cpu,
-  LineChart,
-  Network,
-  Route,
-  TrendingUp,
-  Calculator,
-  Map,
-} from 'lucide-react';
+import { UploadCloud, ScanText, BadgeCheck, FileBarChart } from 'lucide-react';
 
 const steps = [
   {
-    label: 'Initializing AI career systems...',
-    icon: <Cpu className="w-16 h-16 text-white animate-pulse" />,
+    label: 'Uploading and reading your CV...',
+    icon: <UploadCloud className="w-16 h-16 text-white animate-pulse" />,
   },
   {
-    label: 'Analyzing career trajectories...',
-    icon: <LineChart className="w-16 h-16 text-white animate-pulse" />,
+    label: 'Analyzing content and structure...',
+    icon: <ScanText className="w-16 h-16 text-white animate-pulse" />,
   },
   {
-    label: 'Processing industry demand patterns...',
-    icon: <Network className="w-16 h-16 text-white animate-pulse" />,
+    label: 'Assessing skills and experience...',
+    icon: <BadgeCheck className="w-16 h-16 text-white animate-pulse" />,
   },
   {
-    label: 'Mapping skill development pathways...',
-    icon: <Route className="w-16 h-16 text-white animate-pulse" />,
-  },
-  {
-    label: 'Identifying growth opportunities...',
-    icon: <TrendingUp className="w-16 h-16 text-white animate-pulse" />,
-  },
-  {
-    label: 'Calculating optimal career moves...',
-    icon: <Calculator className="w-16 h-16 text-white animate-pulse" />,
-  },
-  {
-    label: 'Generating your personalized roadmap...',
-    icon: <Map className="w-16 h-16 text-white animate-pulse" />,
+    label: 'Generating your personalized report...',
+    icon: <FileBarChart className="w-16 h-16 text-white animate-pulse" />,
   },
 ];
 
-function Loader() {
+function GeneralLoader() {
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
-    const totalDuration = 12000; // 12 seconds
+    const totalDuration = 16000; // 16 seconds
     const totalSteps = 100;
-    const intervalDuration = totalDuration / totalSteps;
+    const intervalDuration = totalDuration / totalSteps; // 160ms
 
     const timer = setInterval(() => {
       setProgress((prevProgress) => {
         const newProgress = prevProgress + 1;
 
-        const nextStep = Math.floor((newProgress / 100) * steps.length);
-        if (nextStep !== currentStep && nextStep < steps.length) {
-          setCurrentStep(nextStep);
+        // Increment step only if the progress is a multiple of 25
+        if (newProgress % 25 === 0 && currentStep < steps.length - 1) {
+          setCurrentStep((prevStep) =>
+            Math.min(prevStep + 1, steps.length - 1)
+          ); // Ensure it doesn't exceed the last index
         }
 
         if (newProgress >= 100) {
@@ -71,7 +53,7 @@ function Loader() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-2xl rounded-xl bg-gray-800/60 backdrop-blur-md border border-blue-500/30 shadow-lg shadow-blue-500/10 p-6 space-y-8">
+      <div className="w-full max-w-md rounded-xl bg-gray-800/60 backdrop-blur-md border border-blue-500/30 shadow-lg shadow-blue-500/10 p-6 space-y-8">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-white">
             CV Review in Progress
@@ -92,7 +74,9 @@ function Loader() {
             ></div>
 
             {/* Center Icon */}
-            <div className="relative z-10">{steps[currentStep]?.icon}</div>
+            <div className="relative z-10">
+              {steps[currentStep]?.icon} {/* Use optional chaining */}
+            </div>
 
             {/* Spinner Ring */}
             <div className="absolute inset-0 rounded-full border-4 border-gray-700"></div>
@@ -106,7 +90,7 @@ function Loader() {
         {/* Step Label */}
         <div className="text-center">
           <p className="text-lg font-medium text-gray-400">
-            {steps[currentStep]?.label}
+            {steps[currentStep]?.label} {/* Use optional chaining */}
           </p>
         </div>
 
@@ -141,4 +125,4 @@ function Loader() {
   );
 }
 
-export default Loader;
+export default GeneralLoader;

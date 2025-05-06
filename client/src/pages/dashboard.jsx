@@ -20,6 +20,7 @@ import CvReview from './cvReview';
 import LearningResources from './learningResourcesPage';
 import JobPage from './JobsMatchPage';
 import ProfilePage from './profilePage';
+import { Link } from 'react-router-dom';
 
 function DashBoard() {
   const [activePage, setActivePage] = useState('roadmap');
@@ -218,14 +219,17 @@ function DashBoard() {
       <div className="hidden md:block fixed top-0 left-0 h-full w-20 lg:w-64 border border-blue-500/30 text-white font-sans transition-all duration-300 ease-in-out z-50">
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="p-4 flex items-center justify-center lg:justify-start">
+          <Link
+            to={'/'}
+            className="p-4 flex items-center justify-center lg:justify-start cursor-pointer"
+          >
             <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
               <span className="text-white font-bold text-xl">AI</span>
             </div>
             <span className="hidden lg:block ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
               CareerPath
             </span>
-          </div>
+          </Link>
 
           {/* Navigation */}
           <nav className="mt-8 flex-1 px-2">

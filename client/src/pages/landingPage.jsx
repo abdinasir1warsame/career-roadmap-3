@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import Hero from '../components/landingPageComponents/hero';
 import Navbar from '../components/landingPageComponents/navbar';
-import Features from '../components/landingPageComponents/features';
-import HowItWorks from '../components/landingPageComponents/howItWorks';
+
 import Testimonials from '../components/landingPageComponents/testimonials';
+import InterViewSection from '../components/landingPageComponents/interviewSection';
+import CareerRoadmapSection from '../components/landingPageComponents/careerRoadMapSection';
+import LearningResourceSection from '../components/landingPageComponents/learningResourceSection';
+import CvAnalysisSection from '../components/landingPageComponents/cvAnalysisSection';
 
 function LandingPage() {
   return (
     <div className="overflow-hidden">
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white ">
+      <div className="min-h-screen  bg-gradient-to-br from-gray-900 to-black text-white ">
         {/* Animated background elements */}
 
         {/* Navbar */}
@@ -17,15 +20,19 @@ function LandingPage() {
 
         {/* Hero Section */}
         <Hero />
-
-        {/* Features Section */}
-        <Features />
-
-        {/* How It Works */}
-        <HowItWorks />
-        {/* Testimonials */}
-        <Testimonials />
-        {/* Get Started Form */}
+        <div className="space-y-20 md:space-y-48 2xxl:space-y-0 mt-20 px-5 md:px-16">
+          {/* career RoadMapSection */}
+          <CareerRoadmapSection />
+          {/* Inter ViewSection */}
+          <InterViewSection />
+          {/* Learning ResourceSection */}
+          <LearningResourceSection />
+          {/* CV Analysis section */}
+          <CvAnalysisSection />
+          {/* Testimonials */}
+          <Testimonials />
+          {/* Get Started Form */}
+        </div>
 
         {/* Footer */}
         <div className="py-12 px-6 border-t border-purple-900/30">

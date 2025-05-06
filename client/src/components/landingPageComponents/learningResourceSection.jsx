@@ -55,7 +55,7 @@ function LearningResourceSection() {
                   <h3 className="font-semibold text-white text-lg">
                     Short, Engaging Videos
                   </h3>
-                  <p className="text-gray-400">
+                  <p className="text-slate-300">
                     Tailored to your current skills and goals, our bite-sized
                     videos make learning efficient and enjoyable.
                   </p>
@@ -84,7 +84,7 @@ function LearningResourceSection() {
                   <h3 className="font-semibold text-white text-lg">
                     Relevant Reading Recommendations
                   </h3>
-                  <p className="text-gray-400">
+                  <p className="text-slate-300">
                     Discover articles, books, and guides perfectly matched to
                     your learning stage and interests.
                   </p>
@@ -113,7 +113,7 @@ function LearningResourceSection() {
                   <h3 className="font-semibold text-white text-lg">
                     Saved to Your Profile
                   </h3>
-                  <p className="text-gray-400">
+                  <p className="text-slate-300">
                     All resources are automatically saved so you can pick up
                     right where you left off, anytime.
                   </p>

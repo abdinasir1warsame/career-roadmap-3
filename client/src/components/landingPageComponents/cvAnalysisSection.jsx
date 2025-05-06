@@ -34,7 +34,7 @@ function CvAnalysisSection() {
               <h3 className="text-2xl font-semibold text-white">
                 What you'll get:
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-lg">
                 <li className="flex items-start gap-3">
                   <div className="mt-1 w-5 h-5 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center flex-shrink-0">
                     <svg
@@ -52,7 +52,7 @@ function CvAnalysisSection() {
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-300">
+                  <span className="text-slate-300">
                     A clear overall assessment of your resume's strength
                   </span>
                 </li>
@@ -73,7 +73,7 @@ function CvAnalysisSection() {
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-300">
+                  <span className="text-slate-300">
                     Feedback on formatting, tone, summary, and achievement focus
                   </span>
                 </li>
@@ -94,7 +94,7 @@ function CvAnalysisSection() {
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-300">
+                  <span className="text-slate-300">
                     A job-fit breakdown when a role is provided, including skill
                     alignment, relevance, and keyword match
                   </span>
@@ -116,7 +116,7 @@ function CvAnalysisSection() {
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-300">
+                  <span className="text-slate-300">
                     Specific strengths, improvement suggestions, and missing
                     keywords
                   </span>

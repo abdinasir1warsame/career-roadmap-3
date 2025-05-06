@@ -20,7 +20,7 @@ function LandingPage() {
 
         {/* Hero Section */}
         <Hero />
-        <div className="space-y-20 md:space-y-48 2xxl:space-y-0 mt-20 px-5 md:px-16">
+        <div className="space-y-20 xl:space-y-32 2xxl:space-y-0 mt-20 px-5 md:px-16">
           {/* career RoadMapSection */}
           <CareerRoadmapSection />
           {/* Inter ViewSection */}

@@ -236,6 +236,12 @@ function DashBoard() {
               onClick={() => setActivePage('roadmap')}
             />
             <NavItem
+              icon={<BookOpen size={20} />}
+              text="Learning Resources"
+              active={activePage === 'learning-resources'}
+              onClick={() => setActivePage('learning-resources')}
+            />
+            <NavItem
               icon={<MessageSquare size={20} />}
               text="Interview Prep"
               active={activePage === 'interview-prep'}
@@ -247,12 +253,7 @@ function DashBoard() {
               active={activePage === 'cv-review'}
               onClick={() => setActivePage('cv-review')}
             />
-            <NavItem
-              icon={<BookOpen size={20} />}
-              text="Learning Resources"
-              active={activePage === 'learning-resources'}
-              onClick={() => setActivePage('learning-resources')}
-            />
+
             <NavItem
               icon={<BarChart2 size={20} />}
               text="Job Match"

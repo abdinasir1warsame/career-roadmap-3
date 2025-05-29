@@ -1,30 +1,16 @@
-import { useNavigate } from 'react-router-dom';
-import { UserAuth } from '../../context/authContext'; // Adjust the path if needed
-import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
-  const navigate = useNavigate();
-  const { user, loading } = UserAuth();
-
-  const handleClick = () => {
-    if (loading) return; // prevent early redirect
-    if (user) {
-      navigate('/dashboard');
-    } else {
-      navigate('/login');
-    }
-  };
-
   return (
     <>
       {/* Hero Section */}
-      <section className="h-screen lg:h-[90vh] relative flex justify-center items-center py-10 lg:py-28 px-6 overflow-hidden">
+      <section className="h-full  lg:h-[90vh] relative flex justify-center items-center py-10 lg:py-28 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://picsum.photos/id/1/1200/800')] bg-cover opacity-10"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-600 rounded-full filter blur-3xl opacity-20"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-20"></div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl h-[75vh] lg:h-full py-16 lg:py-0 mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 lg:items-center">
             <div>
               <h1 className="text-5xl md:text-6xl font-bold leading-tight">
                 Your{' '}
@@ -39,13 +25,12 @@ export default function Hero() {
                 a tailored path to success.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <button
-                  onClick={handleClick}
-                  disabled={loading}
+                <Link
+                  to={'/login'}
                   className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-purple-500/20 font-medium"
                 >
                   Get Your Roadmap
-                </button>
+                </Link>
                 <a
                   href="#how-it-works"
                   className="px-6 py-3 rounded-full border border-purple-500/50 hover:bg-purple-500/10 transition-all font-medium"
